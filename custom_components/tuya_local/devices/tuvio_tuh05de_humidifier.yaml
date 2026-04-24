@@ -1,0 +1,175 @@
+name: Tuvio TUH05DE Humidifier
+products:
+  - id: w7c75twee9njzqw6
+    manufacturer: Tuvio
+    model: TUH05DE
+entities:
+  - entity: humidifier
+    class: humidifier
+    dps:
+      - id: 1
+        name: switch
+        type: boolean
+      - id: 13
+        name: humidity
+        type: integer
+        optional: true
+        range:
+          min: 40
+          max: 80
+        mapping:
+          - step: 5
+      - id: 14
+        name: current_humidity
+        type: integer
+      - id: 2
+        name: mode
+        type: boolean
+        mapping:
+          - dps_val: true
+            value: auto
+          - dps_val: false
+            value: normal
+
+  - entity: select
+    name: Mist level
+    icon: "mdi:spray"
+    category: config
+    dps:
+      - id: 23
+        name: option
+        type: string
+        mapping:
+          - dps_val: level_1
+            value: low
+          - dps_val: level_2
+            value: medium
+          - dps_val: level_3
+            value: high
+          - dps_val: level4
+            value: turbo
+
+  - entity: select
+    name: Tank light color
+    icon: "mdi:lightbulb"
+    category: config
+    dps:
+      - id: 6
+        name: option
+        type: string
+        mapping:
+          - dps_val: close
+            value: "off"
+          - dps_val: white
+            value: white
+          - dps_val: yellow
+            value: yellow
+          - dps_val: green
+            value: green
+          - dps_val: cyan
+            value: cyan
+          - dps_val: blue
+            value: blue
+
+  - entity: switch
+    name: Warm mist
+    icon: "mdi:fire"
+    category: config
+    dps:
+      - id: 5
+        name: switch
+        type: boolean
+
+  - entity: switch
+    name: Sterilization
+    icon: "mdi:sun-wireless-outline"
+    category: config
+    dps:
+      - id: 21
+        name: switch
+        type: boolean
+
+  - entity: switch
+    name: Ionizer
+    icon: "mdi:minus-circle-outline"
+    category: config
+    dps:
+      - id: 25
+        name: switch
+        type: boolean
+
+  - entity: switch
+    translation_key: sleep
+    category: config
+    dps:
+      - id: 16
+        name: switch
+        type: boolean
+
+  - entity: select
+    translation_key: timer
+    icon: "mdi:timer-outline"
+    category: config
+    dps:
+      - id: 19
+        name: option
+        type: string
+        mapping:
+          - dps_val: cancel
+            value: cancel
+          - dps_val: "1h"
+            value: "1h"
+          - dps_val: "2h"
+            value: "2h"
+          - dps_val: "3h"
+            value: "3h"
+          - dps_val: "4h"
+            value: "4h"
+          - dps_val: "5h"
+            value: "5h"
+          - dps_val: "6h"
+            value: "6h"
+          - dps_val: "7h"
+            value: "7h"
+          - dps_val: "8h"
+            value: "8h"
+          - dps_val: "9h"
+            value: "9h"
+          - dps_val: "10h"
+            value: "10h"
+          - dps_val: "11h"
+            value: "11h"
+          - dps_val: "12h"
+            value: "12h"
+
+  - entity: sensor
+    class: temperature
+    category: diagnostic
+    dps:
+      - id: 10
+        name: sensor
+        type: integer
+        class: measurement
+        unit: C
+
+  - entity: binary_sensor
+    translation_key: tank_empty
+    category: diagnostic
+    dps:
+      - id: 22
+        name: sensor
+        type: bitfield
+        mapping:
+          - dps_val: 0
+            value: false
+          - value: true
+
+  - entity: sensor
+    name: Fault code
+    icon: "mdi:alert"
+    class: problem
+    category: diagnostic
+    dps:
+      - id: 22
+        name: sensor
+        type: integer
