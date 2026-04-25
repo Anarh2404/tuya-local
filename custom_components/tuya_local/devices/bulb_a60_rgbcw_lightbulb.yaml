@@ -40,7 +40,6 @@ entities:
           - target_range:
               min: 2700
               max: 6500
-            invert: true
       - id: 30
         name: rhythm_mode
         type: base64
