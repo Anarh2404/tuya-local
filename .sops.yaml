@@ -1,0 +1,9 @@
+keys:
+  - &eugene_mac age16cv2e2ed0rl0chcclmdcz4dar3hrk4pp0t5yjzj85qnwxrl7pszqwzvhj5
+  - &mac_mini age1nda4zuwds6rqk5852jh0eeu5xd3eff3lu0c4032lv4l2h3skte5qyyy8sa
+
+creation_rules:
+  - path_regex: '(^|/).*\.sops\.(ya?ml|json|env|ini)$'
+    age:
+      - *eugene_mac
+      - *mac_mini
